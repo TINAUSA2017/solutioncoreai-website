@@ -97,8 +97,10 @@ img {
     radial-gradient(circle at 50% 34%, rgba(0, 87, 217, 0.28), transparent 24%),
     radial-gradient(circle at 65% 38%, rgba(214, 162, 39, 0.34), transparent 22%),
     linear-gradient(180deg, #030303 0%, #000 100%);
+  background-size: 180% 180%, 180% 180%, 100% 100%;
   color: var(--white);
   overflow: hidden;
+  animation: waterGlow 12s ease-in-out infinite alternate;
 }
 
 .hero-logo-wrap {
@@ -110,7 +112,8 @@ img {
   margin: 0 auto;
   border-radius: 28px;
   mix-blend-mode: screen;
-  filter: drop-shadow(0 0 32px rgba(0, 87, 217, 0.35)) drop-shadow(0 0 34px rgba(214, 162, 39, 0.32));
+  filter: drop-shadow(0 0 32px rgba(0, 87, 217, 0.35))
+    drop-shadow(0 0 34px rgba(214, 162, 39, 0.32));
 }
 
 .animated-logo {
@@ -119,12 +122,29 @@ img {
 
 @keyframes logoGlow {
   0% {
-    filter: drop-shadow(0 0 22px rgba(0, 87, 217, 0.30)) drop-shadow(0 0 20px rgba(214, 162, 39, 0.25)) saturate(1.02);
+    filter: drop-shadow(0 0 22px rgba(0, 87, 217, 0.3))
+      drop-shadow(0 0 20px rgba(214, 162, 39, 0.25)) saturate(1.02);
     transform: scale(1);
   }
+
   100% {
-    filter: drop-shadow(0 0 42px rgba(0, 87, 217, 0.58)) drop-shadow(0 0 46px rgba(214, 162, 39, 0.48)) saturate(1.22);
+    filter: drop-shadow(0 0 42px rgba(0, 87, 217, 0.58))
+      drop-shadow(0 0 46px rgba(214, 162, 39, 0.48)) saturate(1.22);
     transform: scale(1.015);
+  }
+}
+
+@keyframes waterGlow {
+  0% {
+    background-position: 0% 0%, 100% 50%, 0% 0%;
+  }
+
+  50% {
+    background-position: 40% 20%, 60% 80%, 0% 0%;
+  }
+
+  100% {
+    background-position: 80% 40%, 20% 60%, 0% 0%;
   }
 }
 
