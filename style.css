@@ -416,6 +416,7 @@ h2 {
     width: 260px;
     margin: 0 auto 20px;
     border-radius: 18px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.35);
 }
 
 .work-card h3 {
