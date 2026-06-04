@@ -412,6 +412,11 @@ h2 {
   padding: 18px;
   text-align: center;
 }
+.client-logo {
+    width: 260px;
+    margin: 0 auto 20px;
+    border-radius: 18px;
+}
 
 .work-card h3 {
   font-size: 31px;
