@@ -174,8 +174,8 @@ img {
     background-position: 0% 50%;
   }
 
-  50% {
-    background-position: 100% 50%;
+  100% {
+    background-position: 400% 50%;
   }
 
   100% {
@@ -378,18 +378,20 @@ h2 {
 .square::before {
   content: "";
   position: absolute;
-  inset: -2px;
-  border-radius: 26px;
-  background-size: 300% 300%;
-  animation: productRiverLight 8s ease infinite;
+  inset: -6px;
+  border-radius: 30px;
+  background-size: 400% 400%;
+  animation: productRiverLight 4s linear infinite;
   z-index: 0;
+  filter: blur(8px);
+  opacity: 1;
 }
 
 .square::after {
   content: "";
   position: absolute;
-  inset: 2px;
-  border-radius: 22px;
+  inset: 4px;
+  border-radius: 20px;
   background: inherit;
   z-index: 1;
 }
