@@ -89,6 +89,7 @@ img {
 }
 
 .apple-hero {
+  position: relative;
   min-height: calc(100vh - 44px);
   padding: 70px 24px 90px;
   text-align: center;
