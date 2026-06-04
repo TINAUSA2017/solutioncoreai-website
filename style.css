@@ -154,21 +154,6 @@ img {
     background-position: 80% 40%, 20% 60%, 0% 0%;
   }
 }
-@keyframes waterGlow {
-  0% {
-    background-position: 0% 0%, 100% 50%, 0% 0%;
-  }
-
-  50% {
-    background-position: 40% 20%, 60% 80%, 0% 0%;
-  }
-
-  100% {
-    background-position: 80% 40%, 20% 60%, 0% 0%;
-  }
-}
-
-/* ADD HERE */
 
 @keyframes cardRiverLight {
   0% {
@@ -183,6 +168,21 @@ img {
     background-position: 0% 50%;
   }
 }
+
+@keyframes productRiverLight {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
 h1 {
   font-size: clamp(28px, 3vw, 48px);
   line-height: 1.1;
@@ -273,6 +273,7 @@ h2 {
   overflow: hidden;
   box-shadow: 0 18px 45px rgba(0, 0, 0, 0.18);
 }
+
 .decision-card::before {
   content: "";
   position: absolute;
@@ -363,12 +364,39 @@ h2 {
 }
 
 .square {
-  min-height: 280px;
-  padding: 34px 26px;
+  min-height: 180px;
+  padding: 24px 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   overflow: hidden;
+  position: relative;
+  border-radius: 24px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.18);
+}
+
+.square::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: 26px;
+  background-size: 300% 300%;
+  animation: productRiverLight 8s ease infinite;
+  z-index: 0;
+}
+
+.square::after {
+  content: "";
+  position: absolute;
+  inset: 2px;
+  border-radius: 22px;
+  background: inherit;
+  z-index: 1;
+}
+
+.square > * {
+  position: relative;
+  z-index: 2;
 }
 
 .square p {
@@ -391,10 +419,32 @@ h2 {
   color: var(--white);
 }
 
+.product-one::before {
+  background: linear-gradient(
+    90deg,
+    #000000,
+    #061733,
+    #000000,
+    #061733,
+    #000000
+  );
+}
+
 .product-two {
   background: linear-gradient(145deg, #f8f8fb, #ffffff);
   color: var(--text);
   border: 1px solid #ededf0;
+}
+
+.product-two::before {
+  background: linear-gradient(
+    90deg,
+    #ffffff,
+    #0057d9,
+    #000000,
+    #ffe29a,
+    #ffffff
+  );
 }
 
 .product-three {
@@ -402,9 +452,31 @@ h2 {
   color: var(--white);
 }
 
+.product-three::before {
+  background: linear-gradient(
+    90deg,
+    #0057d9,
+    #4da3ff,
+    #0057d9,
+    #4da3ff,
+    #0057d9
+  );
+}
+
 .product-four {
   background: linear-gradient(145deg, #fff2c7, #ffffff);
   color: var(--text);
+}
+
+.product-four::before {
+  background: linear-gradient(
+    90deg,
+    #0057d9,
+    #000000,
+    #d6a227,
+    #000000,
+    #0057d9
+  );
 }
 
 .services-section {
@@ -559,7 +631,7 @@ footer img {
   }
 
   .square {
-    min-height: 240px;
+    min-height: 180px;
   }
 
   .work-card {
