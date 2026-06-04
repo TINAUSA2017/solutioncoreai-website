@@ -129,9 +129,9 @@ img {
 }
 
 h1 {
-  font-size: clamp(48px, 7vw, 84px);
-  line-height: 1.02;
-  letter-spacing: -3px;
+  font-size: clamp(32px, 4vw, 52px);
+  line-height: 1.1;
+  letter-spacing: -1px;
   margin-bottom: 12px;
 }
 
