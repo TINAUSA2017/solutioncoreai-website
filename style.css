@@ -37,24 +37,23 @@ img {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(22, 22, 23, 0.92);
-  backdrop-filter: blur(18px);
+  background: rgba(22, 22, 23, 0.8);
+  backdrop-filter: blur(20px);
 }
 
 .nav {
-  height: 52px;
+  height: 44px;
   max-width: 1024px;
   margin: 0 auto;
   padding: 0 22px;
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 52px;
+  justify-content: space-between;
 }
 
 .logo-icon {
-  width: 42px;
-  height: 42px;
+  width: 30px;
+  height: 30px;
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -63,26 +62,25 @@ img {
 }
 
 .logo-icon img {
-  width: 42px;
+  width: 30px;
   height: auto;
   max-width: none;
   transform: none;
   mix-blend-mode: screen;
-  filter: saturate(1.15) contrast(1.08);
 }
 
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 36px;
+  gap: 32px;
   white-space: nowrap;
 }
 
 .nav-links a {
-  color: rgba(255, 255, 255, 0.84);
+  color: rgba(255, 255, 255, 0.82);
   text-decoration: none;
-  font-size: 14px;
-  font-weight: 500;
+  font-size: 12px;
+  font-weight: 400;
   transition: color 0.2s ease;
 }
 
@@ -91,7 +89,7 @@ img {
 }
 
 .apple-hero {
-  min-height: calc(100vh - 52px);
+  min-height: calc(100vh - 44px);
   padding: 70px 24px 90px;
   text-align: center;
   display: grid;
@@ -412,11 +410,12 @@ h2 {
   padding: 18px;
   text-align: center;
 }
+
 .client-logo {
-    width: 260px;
-    margin: 0 auto 20px;
-    border-radius: 18px;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+  width: 260px;
+  margin: 0 auto 20px;
+  border-radius: 18px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
 }
 
 .work-card h3 {
