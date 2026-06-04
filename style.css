@@ -639,6 +639,23 @@ footer img {
   .work-card {
     min-height: 320px;
   }
+  .social-links {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-top: 30px;
+}
+
+.social-links a {
+  color: #666;
+  font-size: 28px;
+  transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+  color: #0057d9;
+  transform: translateY(-4px);
+}
 
   h1 {
     letter-spacing: -2px;
