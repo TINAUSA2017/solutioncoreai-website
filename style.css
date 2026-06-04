@@ -661,3 +661,21 @@ footer img {
     letter-spacing: -2px;
   }
 }
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-top: 20px;
+}
+
+.social-links a {
+  color: #6e6e73;
+  font-size: 32px;
+  transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+  color: #0057d9;
+  transform: translateY(-4px);
+}
