@@ -694,3 +694,11 @@ footer img {
     letter-spacing: -2px;
   }
 }
+.star,
+.star1,
+.star2,
+.star3,
+.star4,
+.shooting-star {
+  display: none !important;
+}
