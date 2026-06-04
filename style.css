@@ -496,7 +496,7 @@ h2 {
 }
 
 .service-grid article {
-  min-height: 240px;
+  min-height: 260px;
 
   background: linear-gradient(
     145deg,
@@ -533,7 +533,9 @@ h2 {
 
 .service-grid h3 {
   font-size: 24px;
-  margin-bottom: 12px;
+  font-weight: 700;
+  letter-spacing: -0.8px;
+  margin-bottom: 14px;
 }
 
 .service-grid p {
