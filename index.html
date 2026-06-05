@@ -218,6 +218,7 @@
 </footer>
 
 <!-- CHATBOT GOES HERE -->
+
 <div id="chatbot-button">💬</div>
 
 <div id="chatbot-box">
@@ -237,6 +238,19 @@
     placeholder="Ask a question..."
   >
 </div>
+
+<script>
+  const chatbotButton = document.getElementById("chatbot-button");
+  const chatbotBox = document.getElementById("chatbot-box");
+
+  chatbotButton.addEventListener("click", function () {
+    if (chatbotBox.style.display === "block") {
+      chatbotBox.style.display = "none";
+    } else {
+      chatbotBox.style.display = "block";
+    }
+  });
+</script>
 
 </body>
 </html>
