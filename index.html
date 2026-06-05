@@ -245,16 +245,66 @@
 </div>
 
 <script>
-  const chatbotButton = document.getElementById("chatbot-button");
-  const chatbotBox = document.getElementById("chatbot-box");
+const chatbotButton = document.getElementById("chatbot-button");
+const chatbotBox = document.getElementById("chatbot-box");
+const sendBtn = document.getElementById("send-btn");
+const chatInput = document.getElementById("chat-input");
+const chatMessages = document.getElementById("chat-messages");
 
-  chatbotButton.addEventListener("click", function () {
-    if (chatbotBox.style.display === "block") {
-      chatbotBox.style.display = "none";
-    } else {
-      chatbotBox.style.display = "block";
-    }
-  });
+chatbotButton.addEventListener("click", function () {
+  if (chatbotBox.style.display === "block") {
+    chatbotBox.style.display = "none";
+  } else {
+    chatbotBox.style.display = "block";
+  }
+});
+
+function sendMessage() {
+  const userText = chatInput.value.trim();
+
+  if (userText === "") {
+    return;
+  }
+
+  chatMessages.innerHTML += `
+    <div class="user-message">${userText}</div>
+  `;
+
+  let answer = "I can help with AI consulting, websites, automation, digital marketing, product management, and project management.";
+
+  const question = userText.toLowerCase();
+
+  if (question.includes("support") || question.includes("contact") || question.includes("email")) {
+    answer = "You can contact Solution Core AI at support@solutioncoreai.com.";
+  } else if (question.includes("website") || question.includes("web")) {
+    answer = "We help with professional websites, landing pages, business pages, portfolios, and product websites.";
+  } else if (question.includes("ai")) {
+    answer = "Solution Core AI helps businesses use AI for automation, customer support, marketing, workflows, and smarter digital systems.";
+  } else if (question.includes("marketing")) {
+    answer = "We support digital marketing through campaign strategy, landing page copy, SEO structure, ads, and customer communication.";
+  } else if (question.includes("automation")) {
+    answer = "Business automation helps reduce repetitive tasks, improve follow-up, and make operations more efficient.";
+  } else if (question.includes("product")) {
+    answer = "Product management connects customer needs, business goals, roadmap planning, and execution.";
+  } else if (question.includes("project")) {
+    answer = "Project management focuses on planning, timelines, risks, stakeholders, communication, and delivery.";
+  }
+
+  chatMessages.innerHTML += `
+    <div class="bot-message">${answer}</div>
+  `;
+
+  chatInput.value = "";
+  chatMessages.scrollTop = chatMessages.scrollHeight;
+}
+
+sendBtn.addEventListener("click", sendMessage);
+
+chatInput.addEventListener("keydown", function (event) {
+  if (event.key === "Enter") {
+    sendMessage();
+  }
+});
 </script>
   
 </body>
