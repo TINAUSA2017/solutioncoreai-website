@@ -219,45 +219,103 @@
 
 <!-- CHATBOT GOES HERE -->
 
-<div id="chatbot-button">Customer Support</div>
-
-<div class="chat-header">
-  <span>Solution Core AI Assistant</span>
-  <span id="close-chat">✕</span>
+<div id="chatbot-button" aria-label="Open customer support">
+  <span class="support-icon">💬</span>
+  <span>Customer Support</span>
 </div>
+
+<div id="chatbot-box">
+  <div class="chat-header">
+    <div>
+      <strong>Solution Core AI Assistant</strong>
+      <small>Online support</small>
+    </div>
+    <span id="close-chat">✕</span>
+  </div>
 
   <div id="chat-messages">
     <div class="bot-message">
-      Hello! How can I help you today?
+      Thank you for visiting Solution Core AI.<br><br>
+      My name is Alex, your customer support assistant.<br><br>
+      How can I support you today?
+    </div>
+
+    <div class="quick-replies">
+      <button type="button" class="quick-btn">AI consulting</button>
+      <button type="button" class="quick-btn">Website design</button>
+      <button type="button" class="quick-btn">Automation</button>
+      <button type="button" class="quick-btn">Contact support</button>
     </div>
   </div>
 
   <div class="chat-input-row">
-  <input
-    type="text"
-    id="chat-input"
-    placeholder="Ask a question..."
-  >
+    <input
+      type="text"
+      id="chat-input"
+      placeholder="Type your question..."
+      autocomplete="off"
+    >
 
-  <button id="send-btn">
-    Send
-  </button>
+    <button id="send-btn" type="button">
+      Send
+    </button>
+  </div>
 </div>
 
 <script>
 const chatbotButton = document.getElementById("chatbot-button");
 const chatbotBox = document.getElementById("chatbot-box");
+const closeChat = document.getElementById("close-chat");
 const sendBtn = document.getElementById("send-btn");
 const chatInput = document.getElementById("chat-input");
 const chatMessages = document.getElementById("chat-messages");
+const quickButtons = document.querySelectorAll(".quick-btn");
 
 chatbotButton.addEventListener("click", function () {
-  if (chatbotBox.style.display === "block") {
-    chatbotBox.style.display = "none";
-  } else {
-    chatbotBox.style.display = "block";
-  }
+  chatbotBox.style.display = "flex";
 });
+
+closeChat.addEventListener("click", function () {
+  chatbotBox.style.display = "none";
+});
+
+function addMessage(text, className) {
+  const message = document.createElement("div");
+  message.className = className;
+  message.textContent = text;
+  chatMessages.appendChild(message);
+  chatMessages.scrollTop = chatMessages.scrollHeight;
+}
+
+function getBotAnswer(userText) {
+  const question = userText.toLowerCase();
+
+  if (question.includes("contact") || question.includes("email") || question.includes("support")) {
+    return "You can contact Solution Core AI at support@solutioncoreai.com. Please share your goal, and we will help you choose the right service.";
+  }
+
+  if (question.includes("website") || question.includes("web") || question.includes("landing page")) {
+    return "We help with professional websites, landing pages, portfolios, business pages, and product websites designed to look clear and convert visitors into leads.";
+  }
+
+  if (question.includes("ai") || question.includes("consulting")) {
+    return "Solution Core AI helps businesses identify AI opportunities, create practical AI roadmaps, and build AI solutions for customer support, workflows, marketing, and operations.";
+  }
+
+  if (question.includes("automation") || question.includes("workflow")) {
+    return "Business automation can reduce repetitive work, improve customer follow-up, organize internal tasks, and make operations faster and easier to manage.";
+  }
+
+  if (question.includes("marketing") || question.includes("ads") || question.includes("seo")) {
+    return "We support digital marketing through campaign strategy, landing page copy, SEO structure, customer messaging, and advertisement planning.";
+  }
+
+  if (question.includes("product") || question.includes("project")) {
+    return "We help with product and project planning, customer needs, roadmap structure, stakeholder communication, timelines, and execution support.";
+  }
+
+  return "I can help with AI consulting, websites, automation, digital marketing, product management, and project management. Please tell me what you want to build.";
+}
 
 function sendMessage() {
   const userText = chatInput.value.trim();
@@ -266,36 +324,15 @@ function sendMessage() {
     return;
   }
 
-  chatMessages.innerHTML += `
-    <div class="user-message">${userText}</div>
-  `;
+  addMessage(userText, "user-message");
 
-  let answer = "I can help with AI consulting, websites, automation, digital marketing, product management, and project management.";
+  const answer = getBotAnswer(userText);
 
-  const question = userText.toLowerCase();
-
-  if (question.includes("support") || question.includes("contact") || question.includes("email")) {
-    answer = "You can contact Solution Core AI at support@solutioncoreai.com.";
-  } else if (question.includes("website") || question.includes("web")) {
-    answer = "We help with professional websites, landing pages, business pages, portfolios, and product websites.";
-  } else if (question.includes("ai")) {
-    answer = "Solution Core AI helps businesses use AI for automation, customer support, marketing, workflows, and smarter digital systems.";
-  } else if (question.includes("marketing")) {
-    answer = "We support digital marketing through campaign strategy, landing page copy, SEO structure, ads, and customer communication.";
-  } else if (question.includes("automation")) {
-    answer = "Business automation helps reduce repetitive tasks, improve follow-up, and make operations more efficient.";
-  } else if (question.includes("product")) {
-    answer = "Product management connects customer needs, business goals, roadmap planning, and execution.";
-  } else if (question.includes("project")) {
-    answer = "Project management focuses on planning, timelines, risks, stakeholders, communication, and delivery.";
-  }
-
-  chatMessages.innerHTML += `
-    <div class="bot-message">${answer}</div>
-  `;
+  setTimeout(function () {
+    addMessage(answer, "bot-message");
+  }, 400);
 
   chatInput.value = "";
-  chatMessages.scrollTop = chatMessages.scrollHeight;
 }
 
 sendBtn.addEventListener("click", sendMessage);
@@ -305,7 +342,14 @@ chatInput.addEventListener("keydown", function (event) {
     sendMessage();
   }
 });
+
+quickButtons.forEach(function (button) {
+  button.addEventListener("click", function () {
+    chatInput.value = button.textContent;
+    sendMessage();
+  });
+});
 </script>
-  
+
 </body>
 </html>
